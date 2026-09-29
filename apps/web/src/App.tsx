@@ -21,7 +21,7 @@ function AppShell() {
     <Routes>
       <Route path="/" element={<LandingPage onCreate={handleCreateSession} />} />
       <Route path="/join/:code?" element={<JoinPage />} />
-      <Route path="/session/:sessionId" element={<SessionPage />} />
+      <Route path="/session/:sessionId" element={<SessionPage onCreateSession={handleCreateSession} />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
