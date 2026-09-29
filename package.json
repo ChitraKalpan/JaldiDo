@@ -1,0 +1,16 @@
+{
+  "name": "jaldido",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace apps/server\" \"npm run dev --workspace apps/web\"",
+    "build": "npm run build --workspace apps/server && npm run build --workspace apps/web",
+    "test": "npm run test --workspace apps/server && npm run test --workspace apps/web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
