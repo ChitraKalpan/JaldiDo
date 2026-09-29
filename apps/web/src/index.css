@@ -198,6 +198,13 @@ h1 {
   margin-bottom: 18px;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 .share-code-box {
   display: flex;
   align-items: center;
@@ -372,6 +379,14 @@ textarea {
   .file-card {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .header-actions {
+    width: 100%;
+  }
+
+  .header-actions > * {
+    flex: 1;
   }
 
   .code-badge {

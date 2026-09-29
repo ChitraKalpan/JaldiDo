@@ -4,7 +4,11 @@ import { deleteFile, getQrCode, getSession, sendTextMessage } from '../services/
 import { connectSessionSocket, SocketEvent } from '../services/socket';
 import type { Session, SessionFile, SessionMessage } from '../types';
 
-export default function SessionPage() {
+interface SessionPageProps {
+  onCreateSession: () => Promise<void> | void;
+}
+
+export default function SessionPage({ onCreateSession }: SessionPageProps) {
   const { sessionId } = useParams();
   const navigate = useNavigate();
   const sessionRef = useRef<Session | null>(null);
@@ -142,7 +146,10 @@ export default function SessionPage() {
             <p className="eyebrow">JaldiDo</p>
             <h2>Your Share Code</h2>
           </div>
-          <button className="ghost-button" onClick={() => navigate('/')}>Home</button>
+          <div className="header-actions">
+            <button className="secondary-button" onClick={() => void onCreateSession()}>Create New Session</button>
+            <button className="ghost-button" onClick={() => navigate('/')}>Home</button>
+          </div>
         </div>
 
         <div className="share-code-box">
